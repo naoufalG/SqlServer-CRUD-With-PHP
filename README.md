@@ -1,2 +1,2 @@
 # SqlServer-CRUD-With-PHP
-sql server crud with php
+CRUD application for client implementation using SqlServer as database and language PHP for the manipulation of the data 
