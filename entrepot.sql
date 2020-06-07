@@ -58,7 +58,8 @@ create table Administrateur (
 create table Client (
  idClient int,
  nomClient varchar(254),
- prenomClient varchar(254)
+ prenomClient varchar(254),
+ primary key(idClient)
 )
 
 -- --------------------------------------------------------
