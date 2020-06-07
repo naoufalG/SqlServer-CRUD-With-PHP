@@ -59,7 +59,7 @@ create table Client (
  idClient int,
  nomClient varchar(254),
  prenomClient varchar(254),
- primary key(idClient)
+ constraint PK_CLEINT primary key (idClient)
 )
 
 -- --------------------------------------------------------
