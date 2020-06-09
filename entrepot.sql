@@ -22,8 +22,7 @@ SET time_zone = "+00:00";
 Create database Entrepot
 ON Primary
 (name=F1_data, filename="C:\datafiles.mdf", size=100MB, maxsize=200MB, filegrowth=10%)
-filegroup MyDataGroup
-(name=F2_data, filename="C:\datafiles2.ndf", size=20MB, maxsize=50MB, filegrowth=10%)
+
 Log ON
 (name=F_log,filename="C:\logfiles.ldf",size=10MB,filegrowth=10%)
 
@@ -39,14 +38,7 @@ if exists(select name from sys.tables where name like 'Employe')
 Begin
 Drop table Employe
 End
-if exists(select name from sys.tables where name like 'Manutentionnaire')
-Begin
-Drop table Manutentionnaire
-End
-if exists(select name from sys.tables where name like ' Commercial ')
-Begin
-Drop table Commercial
-End
+
 if exists(select name from sys.tables where name like ' Entrepot ')
 Begin
 Drop table Entrepot
@@ -80,18 +72,6 @@ create table Client (
  prenomClient varchar(254)
 )
 
--- --------------------------------------------------------
-
---
--- Table structure for table `Commercial`
---
-
-create table Commercial (
- idEmploye int,
- nomCommercial varchar(254),
- prenomCommercial varchar(254),
- constraint PK_COMMERCIAL primary key (idEmploye)
-)
 
 
 -- --------------------------------------------------------
@@ -124,18 +104,6 @@ create table Entrepot (
 )
 
 
--- --------------------------------------------------------
-
---
--- Table structure for table `manutentionnaire`
---
-
-create table Manutentionnaire (
- idEmploye int,
- nomManu varchar(254),
- prenomManu varchar(254),
- constraint PK_MANUTENTIONNAIRE primary key (idEmploye)
-)
 
 -- --------------------------------------------------------
 
