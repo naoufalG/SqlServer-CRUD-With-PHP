@@ -1,4 +1,5 @@
 <?php
-$serverName = 'localhost';
-$connectionOptions = array( "Database"=>"Entrepot");
+$serverName = "N-Z10";
+$connectionOptions = array("Database"=>"Entrepot");
+
 ?>

@@ -3,14 +3,14 @@ require('Database.php');
 include('errors.php');
 $conn = sqlsrv_connect($serverName, $connectionOptions);
 $id=$_GET['id'];
-$query = "SELECT * from Entrepot.Client where idClient= ?";
+$query = "SELECT * from Client where idClient= ?";
 $param=[$id];
-$result = sqlite_query($con, $query,$param);
+$result = sqlsrv_query($conn, $query,$param);
 if ($result === false) {
    format_errors(sqlsrv_errors());
    die();
 }
-$row = sqlsv_fetch_array($result, SQLSRV_FETCH_ASSOC);
+$row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html>
@@ -32,8 +32,8 @@ $id=$_REQUEST['id'];
 $nom =$_REQUEST['nom'];
 $prenom =$_REQUEST['prenom'];
 
-$tsql = 'UPDATE Entrepot.Client SET nomClient = ? , prenomClient= ? WHERE idClient = ?';
-$param = [ $id , $nom , $prenom ];
+$tsql = 'UPDATE Client SET nomClient = ? , prenomClient= ? WHERE idClient = ?';
+$param = [ $nom , $prenom , $id ];
 
 $result = sqlsrv_query($conn , $tsql, $param);
 if ($result === false) {

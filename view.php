@@ -19,23 +19,23 @@ $conn = sqlsrv_connect($serverName, $connectionOptions); ?>
 <thead>
 <tr>
 <th><strong>N°Client</strong></th>
-<th><strong>Id</strong></th>
 <th><strong>Nom</strong></th>
 <th><strong>Prenom</strong></th>
 <th><strong>Edit</strong></th>
 <th><strong>Delete</strong></th>
+
 </tr>
 </thead>
 <tbody>
 <?php
 $count=1;
-$query = 'SELECT idClient, nomClient, prenomClient FROM Entrepot.Client;';
-$result = sqlite_query($conn , $query);
+$query = 'SELECT idClient, nomClient, prenomClient FROM Client;';
+$result = sqlsrv_query($conn , $query);
 if ($result === false) {
    format_errors(sqlsrv_errors());
    die();
 }
-while($row = sqlsv_fetch_array($result, SQLSRV_FETCH_ASSOC)) { ?>
+while($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) { ?>
 <tr>
 
 <td align="center"><?php echo $row["idClient"]; ?></td>
